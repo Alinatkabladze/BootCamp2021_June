@@ -1,0 +1,11 @@
+# Project exclude paths
+/target/
+.idea
+*.log
+*.mdmp
+target/
+allure-results/
+build/
+*.ipr
+*.iml
+*.iws
