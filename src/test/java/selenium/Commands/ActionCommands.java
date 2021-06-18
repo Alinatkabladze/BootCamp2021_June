@@ -1,4 +1,4 @@
-package Commands;
+package selenium.Commands;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -10,24 +10,26 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-import java.util.List;
-
 public class ActionCommands {
     @Test
-    public void holdAndRelease() {
+    public void holdAndRelease() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
-        String url = "https://selenium08.blogspot.com/2020/01/click-and-hold.html";
+        String url = "https://jqueryui.com/slider/";
         driver.get(url);
-        driver.manage().window().maximize();
-// Locate the element C by By.xpath.
-        WebElement titleC = driver.findElement(By.xpath("//li[text()= 'C']"));
-// Create an object of actions class and pass reference of WebDriver as a parameter to its constructor.
-        Actions actions = new Actions(driver);
-// Move the cursor to the position of element C.
-       // actions.moveToElement(titleC); // Call clickAndHold() method to perform click and hold operation.
-        actions.clickAndHold(titleC).perform();
-        // actions.clickAndHold(element_1).release(element_12).build().perform();
+        try
+        {
+            /* create an object for the Actions class and pass the driver argument */
+            Actions action = new Actions(driver);
+            driver.switchTo().frame(0);
+            WebElement elem_slider = driver.findElement(By.cssSelector(".ui-slider-handle"));
+            action.clickAndHold(elem_slider).moveByOffset(40,0).release().perform();
+            System.out.println("Drag & Drop test case successful\n");
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
     @Test
     public void contextClick() {
@@ -39,9 +41,9 @@ public class ActionCommands {
         WebElement element= driver.findElement(By.id("hot-spot"));
         Actions actions = new Actions(driver);
         actions.contextClick().perform();
-        actions
+     /*   actions
                 .contextClick(element)
-                .perform();
+                .perform();*/
 
     }
     @Test
@@ -56,9 +58,9 @@ public class ActionCommands {
         Actions action = new Actions(driver);
         Thread.sleep(3000);
         action.dragAndDrop(SourceElement, TargetElement).build().perform();
-//action.clickAndHold(SourceElement).moveToElement(TargetElement).release().build().perform();
+       // action.clickAndHold(SourceElement).moveToElement(TargetElement).release().perform();
         Thread.sleep(3000);
-        driver.quit();
+
     }
     @Test
     public void doKeyPresses() {
@@ -69,7 +71,7 @@ public class ActionCommands {
 
 
         WebElement element= driver.findElement(By.id("target"));
-        element.sendKeys(Keys.CONTROL);
+        element.sendKeys(Keys.CONTROL,Keys.DOWN);
     }
 
 

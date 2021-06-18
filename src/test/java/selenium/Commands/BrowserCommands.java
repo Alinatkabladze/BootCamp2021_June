@@ -1,4 +1,4 @@
-package Commands;
+package selenium.Commands;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 

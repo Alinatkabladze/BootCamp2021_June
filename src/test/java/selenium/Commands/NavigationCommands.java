@@ -1,4 +1,4 @@
-package Commands;
+package selenium.Commands;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -6,7 +6,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.net.MalformedURLException;
-import java.net.URL;
+
 import org.testng.annotations.Test;
 
 

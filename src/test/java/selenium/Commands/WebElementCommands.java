@@ -1,4 +1,4 @@
-package Commands;
+package selenium.Commands;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -6,8 +6,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 
 public class WebElementCommands  {
@@ -89,16 +87,33 @@ public class WebElementCommands  {
         String el="";
         driver.get("http://the-internet.herokuapp.com/add_remove_elements/");
         driver.manage().window().maximize();
-        WebElement addButton=driver.findElement(By.xpath("/html/body/div[2]/div/div/button"));
-        for (int i = 0; i <10 ; i++) {
+      /*  WebElement addButton=driver.findElement(By.xpath("/html/body/div[2]/div/div/button"));
+        addButton.click();*/
+        WebElement deleteElement= driver.findElement(By.linkText("Elemental Selenium"));
+        deleteElement.click();
+      /*  for (int i = 0; i <10 ; i++) {
           addButton.click();
         }
         List<WebElement> element= driver.findElements(By.className("added-manually"));
-        for (int i = 0; i < element.size(); i++) {
-            el=element.get(i).getAttribute("class");
-        }
-        System.out.println(element.size());
-        System.out.println(el);
+        System.out.println(element.get(0).getAttribute("class"));
+        System.out.println(element.size());*/
+
+
+    }
+
+    @Test
+    public void getInfo1() {
+        driver.get("http://the-internet.herokuapp.com/drag_and_drop");
+        driver.manage().window().maximize();
+        WebElement element= driver.findElement(By.id("column-a"));
+        WebElement elementB= driver.findElement(By.id("column-b"));
+
+
+        Point point = element.getLocation();
+        System.out.println("X cordinate : " + point.x + "\n"+ "Y cordinate: " + point.y);
+
+        Point pointB = elementB.getLocation();
+        System.out.println("X cordinate : " + pointB.x + "\n"+ "Y cordinate: " + pointB.y);
 
     }
 
