@@ -29,7 +29,9 @@ public class Waits {
     public void waitImplicitly() {
         driver.get("http://the-internet.herokuapp.com/dynamic_controls");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, SECONDS);
+
+        driver.manage().timeouts().implicitlyWait(200, SECONDS);
+
         WebElement submitButton = driver.findElement(By.xpath("//form[@id='input-example']/button[@type='button']"));
         submitButton.click();
         WebElement message=driver.findElement(By.id("message"));
@@ -41,11 +43,10 @@ public class Waits {
     public void waitExplicitly() {
         driver.get("http://the-internet.herokuapp.com/dynamic_loading/1");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//div[@id='start']//following-sibling::button")).click();
         WebElement text = driver.findElement(By.xpath("//div[@id='finish']//following::h4"));
-
-        new WebDriverWait(driver, 8).until(ExpectedConditions.visibilityOf(text));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(text));
         System.out.println(text.getText());
     }
     @Test

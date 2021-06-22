@@ -26,9 +26,9 @@ public class FormElements {
         driver.manage().window().maximize();
         WebElement male = driver.findElement(By.cssSelector("input[value='male']"));
         WebElement female = driver.findElement(By.cssSelector("input[value='female']"));
-        if(female.isSelected())
+        female.click();
+        if(!female.isSelected())
             female.click();
-
     }
     @Test
     public void dropDowns() {
@@ -45,10 +45,10 @@ public class FormElements {
         driver.get("https://techcanvass.com/examples/register.html");
         driver.manage().window().maximize();
         Select name = new Select(driver.findElement(By.cssSelector("select[name='model']")));
-        name.selectByVisibleText("Serene Pad 32G");
+        name.selectByValue("Mega123");
         System.out.println("multiple " + name.isMultiple());
 
-        List<WebElement> selectedOptions = (List<WebElement>) name.getFirstSelectedOption();
+        List<WebElement> selectedOptions =  name.getOptions();
         for(WebElement selectedOption : selectedOptions) {
             System.out.println(selectedOption.getText());
         }

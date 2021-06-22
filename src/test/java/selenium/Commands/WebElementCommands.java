@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 
 public class WebElementCommands  {
         WebDriver driver;
@@ -83,21 +85,23 @@ public class WebElementCommands  {
         element.click();
     }
     @Test
-    public void findElements() {
+    public void findElements() throws InterruptedException {
         String el="";
         driver.get("http://the-internet.herokuapp.com/add_remove_elements/");
         driver.manage().window().maximize();
-      /*  WebElement addButton=driver.findElement(By.xpath("/html/body/div[2]/div/div/button"));
-        addButton.click();*/
-        WebElement deleteElement= driver.findElement(By.linkText("Elemental Selenium"));
-        deleteElement.click();
-      /*  for (int i = 0; i <10 ; i++) {
+        WebElement addButton=driver.findElement(By.xpath("/html/body/div[2]/div/div/button"));
+        //addButton.click();
+       /* WebElement deleteElement= driver.findElement(By.linkText("Elemental Selenium"));
+        deleteElement.click();*/
+        for (int i = 0; i <1 ; i++) {
           addButton.click();
         }
-        List<WebElement> element= driver.findElements(By.className("added-manually"));
-        System.out.println(element.get(0).getAttribute("class"));
-        System.out.println(element.size());*/
-
+        WebElement element= driver.findElement(By.cssSelector(".added-manually"));
+        WebElement addButton1=driver.findElement(By.className("added-manually"));
+        WebElement addButton2=driver.findElement(By.xpath("/html/body/div[2]/div/div/div/button"));
+        Thread.sleep(3000);
+        System.out.println(element.getLocation());
+        element.click();
 
     }
 
