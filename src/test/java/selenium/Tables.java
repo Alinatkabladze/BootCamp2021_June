@@ -29,6 +29,7 @@ public class Tables {
             for(int colno=1;colno<=3;colno++)
             {
                 System.out.println(driver.findElement(By.xpath("//*[@id='t01']/tbody/tr[" + rowno + "]/td[" + colno + "]")).getText());
+
             }
         }
     }
@@ -36,10 +37,10 @@ public class Tables {
     public void handleDynamicTable() {
         driver.get("http://techcanvass.com/Examples/webtable.html");
         driver.manage().window().maximize();
+
         WebElement webtable=driver.findElement(By.xpath("html/body/table"));
         //Finding & Printing number of rows
         List<WebElement> rows=webtable.findElements(By.tagName("tr"));
-        webtable.findElements(By.tagName("tr")).size();
         System.out.println("Number of Rows including headings:"+ rows.size());
         //Finding and printing number of columns
         List<WebElement>columns = rows.get(0).findElements(By.tagName("th"));
