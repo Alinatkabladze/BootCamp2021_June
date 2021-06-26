@@ -20,21 +20,19 @@ public class Exceptions {
         driver.get("https://demoqa.com/alerts");
         driver.manage().window().maximize();
         driver.findElement(By.id("timerAlertButton")).click();
-        new WebDriverWait(driver,6).until(ExpectedConditions.alertIsPresent());
-        driver.quit();
+        new WebDriverWait(driver,4).until(ExpectedConditions.alertIsPresent());
+
         try {
             driver.switchTo().alert().accept();
         }
-        catch(NoSuchSessionException e){
+        catch(NoAlertPresentException e){
             System.out.println("no alert");
             System.out.println(e.getMessage());
         }
-        catch(InvalidSelectorException e){
-            System.out.println("no alert");
+        catch(TimeoutException e){
             System.out.println(e.getMessage());
         }
-        catch(Exception e){
-            
-        }
+        System.out.println("Out block");
+
     }
 }

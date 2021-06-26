@@ -58,7 +58,7 @@ public class FileUpload {
         Robot rb = new Robot();
 
         // copying File path to Clipboard
-        StringSelection str = new StringSelection("C:\\Users\\atkabladze\\Desktop\\Picture1.jpg");
+        StringSelection str = new StringSelection("C:\\Users\\atkabladze\\IdeaProjects\\untitled\\src\\main\\resources\\Selenium_Logo.png");
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
 
         // press Contol+V for pasting
