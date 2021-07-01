@@ -25,17 +25,19 @@ public class Autocomplete {
     @Test
     public void handleTooltip() throws InterruptedException {
 
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get("http://webdriveruniversity.com/Autocomplete-TextField/autocomplete-textfield.html");
-        driver.findElement(By.id("myInput")).sendKeys("Av");
+        driver.get("http://formy-project.herokuapp.com/autocomplete");
 
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[text()='acado']")))).click();
-        js.executeScript("document.getElementById('submit-button').click();");
+        WebElement autocomplete = driver.findElement(By.id("autocomplete"));
+        autocomplete.sendKeys("1326 The Alameda, San Jose, CA");
+        WebDriverWait wait = new WebDriverWait(driver,30);
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("pac-item")));
+        WebElement autocompleteResult = driver.findElement(By.className("pac-item"));
+        autocompleteResult.click();
 
-        List<WebElement> autoSuggest = driver.findElements(By.id("myInputautocomplete-list"));
-        Thread.sleep(3000);
 
     }
-}
+
+
+    }
+
+
