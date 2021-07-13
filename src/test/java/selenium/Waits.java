@@ -30,7 +30,7 @@ public class Waits {
         driver.get("http://the-internet.herokuapp.com/dynamic_controls");
         driver.manage().window().maximize();
 
-        driver.manage().timeouts().implicitlyWait(200, SECONDS);
+      //  driver.manage().timeouts().implicitlyWait(200, SECONDS);
 
         WebElement submitButton = driver.findElement(By.xpath("//form[@id='input-example']/button[@type='button']"));
         submitButton.click();

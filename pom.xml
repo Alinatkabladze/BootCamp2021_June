@@ -13,6 +13,14 @@
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
     <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/com.codeborne/selenide -->
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>5.22.3</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-htmlunit-driver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
