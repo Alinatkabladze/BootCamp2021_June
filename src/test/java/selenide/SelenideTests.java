@@ -1,6 +1,7 @@
 package selenide;
 import com.codeborne.selenide.*;
 import com.codeborne.selenide.testng.SoftAsserts;
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -37,19 +38,31 @@ public class SelenideTests {
     }
 
     @Test
-    public void waitForElement() {
+    public void basicCommands() {
+        assertionMode=AssertionMode.STRICT;
         open("/dynamic_controls");
      //   $(byAttribute("href","http://elementalselenium.com/")).click();
        SelenideElement enableButton= $(byTextCaseInsensitive("enable"));
        enableButton.click();
         System.out.println($("#message").getText());
         $("#message").shouldHave(text("It's enabled!"));
-        $(byXpath("//form[@id='input-example']/input")).should(enabled, Duration.ofSeconds(1));
+        $("#input-example").$(byText("Disable")).shouldBe(and("Check text and state"
+                ,Condition.text("Disable"),disabled));
+      //  $(byXpath("//form[@id='input-example']/input")).should(disabled, Duration.ofSeconds(1));
+       // $(byXpath("//form[@id='input-example']/input")).shouldHave(Condition.text("Disable"), Duration.ofSeconds(1));
 
     }
 
     @Test
-    public void doAction(){
+    public void keyPressesExample() {
+        open("/key_presses");
+        actions().sendKeys(Keys.ESCAPE).perform();
+        sleep(5000);
+
+    }
+
+    @Test
+    public void elementsCollectionExample(){
         open("/add_remove_elements/");
         // $(byText("Delete")).click();
         for (int i = 0; i <3 ; i++) {
