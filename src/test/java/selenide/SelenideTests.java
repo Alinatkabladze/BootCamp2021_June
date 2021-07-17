@@ -2,9 +2,12 @@ package selenide;
 import com.codeborne.selenide.*;
 import com.codeborne.selenide.testng.SoftAsserts;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
 import java.time.Duration;
 
 import static com.codeborne.selenide.CollectionCondition.*;
@@ -26,6 +29,7 @@ public class SelenideTests {
         fastSetValue=true;
         assertionMode=AssertionMode.SOFT;
         Configuration.fileDownload=FileDownloadMode.HTTPGET;
+        reportsFolder="src/main/resources/failedScreens";
 
     }
 
@@ -47,7 +51,7 @@ public class SelenideTests {
         System.out.println($("#message").getText());
         $("#message").shouldHave(text("It's enabled!"));
         $("#input-example").$(byText("Disable")).shouldBe(and("Check text and state"
-                ,Condition.text("Disable"),disabled));
+                ,Condition.text("Enabled"),disabled));
       //  $(byXpath("//form[@id='input-example']/input")).should(disabled, Duration.ofSeconds(1));
        // $(byXpath("//form[@id='input-example']/input")).shouldHave(Condition.text("Disable"), Duration.ofSeconds(1));
 
@@ -60,6 +64,17 @@ public class SelenideTests {
         sleep(5000);
 
     }
+    @Test
+    public void testNGAssertionsExample() {
+        SoftAssert softAssert = new SoftAssert();
+        open("/dynamic_controls");
+        SelenideElement enableButton= $(byTextCaseInsensitive("enable"));
+        //enableButton.click();
+       //softAssert.assertEquals($("#input-example").$(byText("Disable")).getText(),"Enabled","Check text");
+       $(withText("Enable"),2).click();
+     //  softAssert.assertFalse($("#input-example").$(byText("Disable")).isEnabled());
+       softAssert.assertAll();
+    }
 
     @Test
     public void elementsCollectionExample(){
@@ -68,8 +83,9 @@ public class SelenideTests {
         for (int i = 0; i <3 ; i++) {
             $(byText("Add Element")).click();
         }
-        $$(byText("Delete")).shouldHave(texts("Delete","Delete","Add"));
-        $(byText("Delete")).click();
+       // $$(byText("Delete")).shouldHave(texts("Delete","Delete","Add"));
+        $$(byText("Delete")).stream().forEach(el -> el.click());
+       // $(byText("Delete")).click();
         //  System.out.println($("body").find("#elements").findAll(".added-manually").get(0).getText());
         sleep(4000);
     }
