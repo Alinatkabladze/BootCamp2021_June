@@ -8,6 +8,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.io.FileNotFoundException;
 import java.time.Duration;
 
 import static com.codeborne.selenide.CollectionCondition.*;
@@ -21,14 +22,15 @@ import static com.codeborne.selenide.Selenide.*;
 public class SelenideTests {
 
     public SelenideTests(){
-        Configuration.startMaximized=true;
+        startMaximized=true;
       //  timeout=20000;
       //  holdBrowserOpen=false;
         baseUrl = "http://the-internet.herokuapp.com";
         reopenBrowserOnFail = true;
+        downloadsFolder="src/main/resources/Pictures";
         fastSetValue=true;
         assertionMode=AssertionMode.SOFT;
-        Configuration.fileDownload=FileDownloadMode.HTTPGET;
+        fileDownload=FileDownloadMode.HTTPGET;
         reportsFolder="src/main/resources/failedScreens";
 
     }
@@ -110,5 +112,11 @@ public class SelenideTests {
         $("#dropdown").getSelectedOption().shouldHave(matchText("Option 1"),value("1"));
         $("#dropdown").selectOptionContainingText("Option 1");
         $("#dropdown").getSelectedOption().shouldHave(matchText("ption 1"),value("1"));
+    }
+    @Test
+    public void fileDownload() throws FileNotFoundException {
+        open("/download");
+        $(byText("logo.png")).download();
+
     }
 }
