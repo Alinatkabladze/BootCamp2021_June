@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite" parallel="tests" thread-count="2">
+
+    <test name="test1">
+<groups>
+    <define name="all">
+        <include name="demo.*"></include>
+    </define>
+    <run>
+        <include name="all"></include>
+    </run>
+</groups>
+        <classes>
+            <class name="TestNG.Groups.Test1">
+            </class>
+        </classes>
+    </test>
+
+</suite>

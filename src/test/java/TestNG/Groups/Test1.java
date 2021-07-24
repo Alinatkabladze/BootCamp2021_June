@@ -15,7 +15,7 @@ public class Test1 {
     String title = "ToolsQA - Demo Website For Automation";
 
 
-    @Test(groups = { "demo1" })
+    @Test(groups = { "demo1" ,"demo2"})
     public void starting_point(){
         System.out.println("This is the starting point of the test");
         //Initialize Chrome Driver
@@ -26,7 +26,7 @@ public class Test1 {
     }
 
 
-    @Test(groups = { "demo2" })
+    @Test(groups = { "demo1" })
     public void checkTitle() {
         String testTitle = "ToolsQA";
         String originalTitle = driver.getTitle();
@@ -34,7 +34,7 @@ public class Test1 {
     }
 
 
-     @Test(priority = 240)
+    @Test(groups = { "demo2" })
     public void click_element() {
         driver.findElement(By.xpath("//*[@id=\"sidebar\"]/aside[1]/ul/li[1]/a")).click();
         System.out.println("Home Page heading is displayed");
