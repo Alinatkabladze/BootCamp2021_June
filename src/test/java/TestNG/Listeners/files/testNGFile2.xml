@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Second Test Suite">
+
+    <test name="isuitetest2">
+        <classes>
+            <class name="TestNG.Listeners.SuiteTest2"/>
+        </classes>
+    </test>
+
+</suite>
