@@ -9,6 +9,7 @@ public class SuiteSetup implements ISuiteListener {
     }
     public void onFinish(ISuite suite)
     {
+
         System.out.println("onFinish function started "  + suite.getName());
     }
 }

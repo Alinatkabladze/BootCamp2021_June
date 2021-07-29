@@ -7,7 +7,7 @@ public class ExpectedExceptionTest {
     String message = "Bootcamp";
     MessageUtil messageUtil = new MessageUtil(message);
 
-    @Test(expectedExceptions = ArithmeticException.class)
+    @Test
     public void testPrintMessage(){
         System.out.println("Inside testPrintMessage()");
         messageUtil.printMessage();

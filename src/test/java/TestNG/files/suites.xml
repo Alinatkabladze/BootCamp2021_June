@@ -15,7 +15,7 @@
         <classes>
             <class name="TestNG.Parallel.ParallelMethods">
                 <methods>
-                    <exclude name="testMethod2"></exclude>
+                    <exclude name="testMethod.*"></exclude>
                 </methods>
             </class>
         </classes>

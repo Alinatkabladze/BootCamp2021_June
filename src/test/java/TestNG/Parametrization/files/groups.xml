@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite" parallel="tests" thread-count="2">
+
+    <test name="test1">
+        <groups>
+            <define name="all">
+                <include name="One"></include>
+                <include name="Two"></include>
+            </define>
+            <run>
+                <include name="all"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name="TestNG.Parametrization.ITestContext_DataProvider">
+            </class>
+        </classes>
+    </test>
+
+</suite>

@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
-@Listeners(ListenersTestNG.class)
+//@Listeners(ListenersTestNG.class)
 public class ITestListenerExample {
     WebDriver driver;
 

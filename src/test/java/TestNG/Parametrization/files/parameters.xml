@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "Suite1">
+    <parameter name = "x" value="5"/>
+    <test name = "test1">
+        <parameter name = "x" value="1"/>
+        <parameter name = "y" value="1"/>
+        <classes>
+            <class name = "TestNG.Parametrization.ParameterizedTest1" />
+        </classes>
+    </test>
+    <test name = "test2">
+        <parameter name = "x" value="4"/>
+        <parameter name = "y" value="5"/>
+        <classes>
+            <class name = "TestNG.Parametrization.ParameterizedTest1" />
+        </classes>
+    </test>
+</suite>

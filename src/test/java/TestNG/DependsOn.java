@@ -34,8 +34,9 @@ public class DependsOn {
             $(".example button").click();
         }
         $$(".added-manually").shouldHave(texts("Add", "Delete", "Delete"));
+
     }
-    @Test(dependsOnMethods = "c_doAction",alwaysRun = true)
+    @Test(dependsOnMethods = "c_doAction")
     public void b_doAction1() {
         open("http://the-internet.herokuapp.com/add_remove_elements/");
         for (int i = 0; i < 3; i++) {

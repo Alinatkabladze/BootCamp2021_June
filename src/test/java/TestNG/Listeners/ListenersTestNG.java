@@ -21,10 +21,12 @@ public class ListenersTestNG implements ITestListener {
     }
 
     public void onTestFailure(ITestResult result) {
+
         System.out.println("onTestFailure Method  " + result.getName());
     }
 
     public void onTestSkipped(ITestResult result) {
+
         System.out.println("onTestSkipped Method  " + result.getName());
     }
 
