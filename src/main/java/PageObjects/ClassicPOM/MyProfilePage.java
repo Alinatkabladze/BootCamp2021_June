@@ -1,4 +1,4 @@
-package PageObjects;
+package PageObjects.ClassicPOM;
 
 import org.openqa.selenium.WebElement;
 

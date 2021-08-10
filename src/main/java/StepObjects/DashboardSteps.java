@@ -1,6 +1,6 @@
 package StepObjects;
 
-import PageObjects.DashboardPage;
+import PageObjects.ClassicPOM.DashboardPage;
 import org.openqa.selenium.WebDriver;
 
 public class DashboardSteps {
