@@ -51,7 +51,8 @@ class DeveloperBuilder {
         return developer;
     }
     Developer validDev =
-            new DeveloperBuilder().email("ben@example.com")
+            new DeveloperBuilder()
+                    .email("ben@example.com")
                     .name("Ben Weidig")
                     .language("Java")
                     .language("Swift")

@@ -14,11 +14,8 @@ public class DeveloperPortalPage {
     @FindBy(linkText = "JOIN TOPTAL")
     private WebElement joinToptalButton;
 
-    //Constructor
     public DeveloperPortalPage (WebDriver driver){
         this.driver=driver;
-
-        //Initialise Elements
         PageFactory.initElements(driver, this);
     }
 

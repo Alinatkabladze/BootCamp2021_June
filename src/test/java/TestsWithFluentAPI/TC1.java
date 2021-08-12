@@ -5,13 +5,18 @@ import PageObjects.FluentAPI.DashboardPage;
 import PageObjects.FluentAPI.HomePage;
 import PageObjects.FluentAPI.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 
 public class TC1 {
 
-    public static void main(String[] args) throws InterruptedException {
+    @Test(description="Login")
+    @Severity(SeverityLevel.BLOCKER)
+    public void test1() throws InterruptedException {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();

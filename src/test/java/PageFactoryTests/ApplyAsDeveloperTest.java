@@ -1,5 +1,7 @@
 package PageFactoryTests;
 
+
+
 import PageObjects.PageFactory.DeveloperApplyPage;
 import PageObjects.PageFactory.DeveloperPortalPage;
 import PageObjects.PageFactory.HomePage;
@@ -37,6 +39,7 @@ public class ApplyAsDeveloperTest {
         applyPage.setDeveloper_password("password123");
         applyPage.setDeveloper_password_confirmation("password123");
         applyPage.setDeveloper_skype("automated_test_skype");
+
 
         //Click on join
         //applyPage.clickOnJoin();
