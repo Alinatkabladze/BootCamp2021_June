@@ -53,6 +53,16 @@ public class FormElements {
             System.out.println(selectedOption.getText());
         }
     }
+    @Test
+    public void getOptionFromDropDown_Angular() {
+        driver.get("https://ng-bootstrap.github.io/#/components/dropdown/examples");
+        driver.manage().window().maximize();
+        driver.findElement(By.id("dropdownBasic1")).click();
+        List<WebElement> dropDown = driver.findElements(By.xpath("//div[@x-placement='bottom-left' and @class='dropdown-menu show']/button"));
+        System.out.println(dropDown.get(1).getText());
+        dropDown.get(1).click();
+
+    }
     @AfterMethod
     public void tearDown(){
         // driver.close();

@@ -22,7 +22,7 @@ public class WebElementCommands  {
             driver.get("https://the-internet.herokuapp.com/inputs");
             driver.manage().window().maximize();
             WebElement element= driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/input"));
-            System.out.println("Get text "+ driver.findElement(By.xpath(" /html/body/div[2]/div/div/div/div/p")).getText());
+            System.out.println("Get text "+ driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/p")).getText());
             element.sendKeys("1");
             element.clear();
 
@@ -123,7 +123,7 @@ public class WebElementCommands  {
 
         @AfterMethod
         public void tearDown(){
-          driver.close();
+        //  driver.close();
         }
     }
 

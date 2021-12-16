@@ -29,9 +29,7 @@ public class Waits {
     public void waitImplicitly() {
         driver.get("http://the-internet.herokuapp.com/dynamic_controls");
         driver.manage().window().maximize();
-
-      //  driver.manage().timeouts().implicitlyWait(200, SECONDS);
-
+        driver.manage().timeouts().implicitlyWait(5, SECONDS);
         WebElement submitButton = driver.findElement(By.xpath("//form[@id='input-example']/button[@type='button']"));
         submitButton.click();
         WebElement message=driver.findElement(By.id("message"));
@@ -45,9 +43,9 @@ public class Waits {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//div[@id='start']//following-sibling::button")).click();
-        WebElement text = driver.findElement(By.xpath("//div[@id='finish']//following::h4"));
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(text));
-        System.out.println(text.getText());
+        //WebElement text = driver.findElement(By.xpath("//div[@id='finish']//following::h4"));
+        new WebDriverWait(driver, 10).until(ExpectedConditions.textToBe(By.xpath("//div[@id='finish']//following::h4"),"Hello World!"));
+
     }
     @Test
     public void progressBar() {
@@ -56,7 +54,7 @@ public class Waits {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.id("startStopButton")).click();
         // driver.findElement(By.xpath("//button[text()='100%']"));
-        new WebDriverWait(driver, 2).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='100%']")));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='100%']")));
         System.out.println(driver.findElement(By.xpath("//div[text()='100%']")).getText());
 
     }
