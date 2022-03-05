@@ -15,7 +15,7 @@ public class Test1 {
     String title = "ToolsQA - Demo Website For Automation";
 
 
-    @Test(groups = { "demo1" ,"demo2"})
+    @Test(groups = { "regression tests" ,"demo2"})
     public void starting_point(){
         System.out.println("This is the starting point of the test");
         //Initialize Chrome Driver
@@ -26,7 +26,7 @@ public class Test1 {
     }
 
 
-    @Test(groups = { "demo1" })
+    @Test(groups = { "smoke test" })
     public void checkTitle() {
         String testTitle = "ToolsQA";
         String originalTitle = driver.getTitle();

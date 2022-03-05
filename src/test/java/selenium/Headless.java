@@ -9,16 +9,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class Headless {
     WebDriver driver;
-    public Headless() {
-     /*   WebDriverManager.chromedriver().setup();
+    @BeforeMethod
+    public void setup() {
+     //   WebDriverManager.chromedriver().setup();
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\ATkabladze\\IdeaProjects\\BootCamp2021_June\\src\\main\\resources\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
-         driver = new ChromeDriver(options);*/
-        driver = new HtmlUnitDriver();
+         driver = new ChromeDriver(options);
+       // driver = new HtmlUnitDriver(true);
 
     }
 

@@ -25,7 +25,6 @@ public class WebElementCommands  {
             System.out.println("Get text "+ driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/p")).getText());
             element.sendKeys("1");
             element.clear();
-
         }
     @Test
     public void getLocation()  {

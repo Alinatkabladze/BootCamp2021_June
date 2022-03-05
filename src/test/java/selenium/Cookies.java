@@ -1,6 +1,5 @@
 package selenium;
 
-import java.io.*;
 import java.util.*;
 
 
@@ -36,13 +35,17 @@ public class Cookies{
                 driver.findElement(By.cssSelector(".form-signin-heading center")).getText(),"You are logged In");
 
         Set<Cookie> cookies = driver.manage().getCookies();
+        Cookie seleniumCookie=driver.manage().getCookieNamed("Selenium");
+        System.out.println(cookies.size());
         driver.close();
         driver = new ChromeDriver();
 
         //restore all cookies from previous session
         driver.get("http://demo.guru99.com/test/cookie/selenium_aut.php");
         for(Cookie ck:cookies) {
-            driver.manage().addCookie(ck);
+          //  Cookie cookie=cookies.iterator().next();
+           // System.out.println(cookie);
+            driver.manage().deleteCookie(seleniumCookie);
         }
         Thread.sleep(2000);
 

@@ -1,6 +1,9 @@
+/*
 package selenide;
 import com.codeborne.selenide.*;
 import com.codeborne.selenide.testng.SoftAsserts;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -22,14 +25,15 @@ import static com.codeborne.selenide.Selenide.*;
 public class SelenideTests {
 
     public SelenideTests(){
-        startMaximized=true;
-      //  timeout=20000;
-      //  holdBrowserOpen=false;
+
+        timeout=20000;
+        holdBrowserOpen=false;
+        screenshots=false;
         baseUrl = "http://the-internet.herokuapp.com";
         reopenBrowserOnFail = true;
         downloadsFolder="src/main/resources/Pictures";
         fastSetValue=true;
-        assertionMode=AssertionMode.SOFT;
+     //   assertionMode=AssertionMode.SOFT;
         fileDownload=FileDownloadMode.HTTPGET;
         reportsFolder="src/main/resources/failedScreens";
 
@@ -37,9 +41,10 @@ public class SelenideTests {
 
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void isImage() {
         open("https://demoqa.com/books");
-        $(".rt-td img").isImage();
+      //  $(".rt-td img").isImage();
         sleep(5000);
     }
 
@@ -120,3 +125,4 @@ public class SelenideTests {
 
     }
 }
+*/

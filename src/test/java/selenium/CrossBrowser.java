@@ -24,9 +24,10 @@ public class CrossBrowser {
 
         //Check if parameter passed as 'chrome'
         if(browser.equalsIgnoreCase("chrome")){
-            //set path to chromedriver.exe
-          //  System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-          //   WebDriverManager.chromedriver().setup();
+            //set path to chromedriver_old.exe
+          //  System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_old.exe");
+            /* WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();*/
             //create chrome instance
             driver = new HtmlUnitDriver(BrowserVersion.CHROME);
         }
@@ -34,15 +35,16 @@ public class CrossBrowser {
         else if(browser.equalsIgnoreCase("Edge")){
             //set path to Edge.exe
            // System.setProperty("webdriver.edge.driver", ".\\src\\main\\resources\\MicrosoftWebDriver.exe");
-            WebDriverManager.edgedriver().setup();
+            /*WebDriverManager.edgedriver().setup();
+            driver = new EdgeDriver();*/
             //create Edge instance
-            driver = new HtmlUnitDriver(BrowserVersion.EDGE);
+            driver = new HtmlUnitDriver(BrowserVersion.FIREFOX);
         }
         else{
             //If no browser passed throw exception
             throw new Exception("Browser is not correct");
         }
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test

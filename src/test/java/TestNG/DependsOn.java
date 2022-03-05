@@ -1,5 +1,7 @@
 package TestNG;
 
+import com.codeborne.selenide.Configuration;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -11,7 +13,11 @@ public class DependsOn {
 
     @BeforeMethod
     public void before() {
-        startMaximized = true;
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized");
+        Configuration.browserCapabilities = options;
+        Configuration.browserSize = null;
+        //startMaximized = true;
     }
     @AfterMethod
     public void after() {

@@ -5,15 +5,10 @@
 <suite name="TestSuite" thread-count="2" parallel="tests" >
 
     <test name="ChromeTest">
-
         <parameter name="browser" value="Chrome" />
-
         <classes>
-
             <class name="selenium.CrossBrowser">
-
             </class>
-
         </classes>
     </test>
 
@@ -22,9 +17,7 @@
         <classes>
             <class name="selenium.CrossBrowser">
             </class>
-
         </classes>
-
     </test>
 
 </suite>

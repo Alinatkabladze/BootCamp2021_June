@@ -23,7 +23,11 @@ public class ActionCommands {
             Actions action = new Actions(driver);
             driver.switchTo().frame(0);
             WebElement elem_slider = driver.findElement(By.cssSelector(".ui-slider-handle"));
-            action.clickAndHold(elem_slider).moveByOffset(40,0).release().perform();
+            action
+                    .clickAndHold(elem_slider)
+                    .moveByOffset(40,0)
+                    .release()
+                    .perform();
             System.out.println("Drag & Drop test case successful\n");
         }
         catch (Exception e)
@@ -47,7 +51,7 @@ public class ActionCommands {
 
     }
     @Test
-    public void dragAndDrop() throws InterruptedException {
+    public void dragNDrop() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("http://jqueryui.com/droppable/");
@@ -57,7 +61,9 @@ public class ActionCommands {
         WebElement TargetElement= driver.findElement(By.id("droppable"));
         Actions action = new Actions(driver);
         Thread.sleep(3000);
-        action.dragAndDrop(SourceElement, TargetElement).build().perform();
+        action
+                .dragAndDrop(SourceElement, TargetElement)
+                .build().perform();
        // action.clickAndHold(SourceElement).moveToElement(TargetElement).release().perform();
         Thread.sleep(3000);
 
@@ -72,7 +78,14 @@ public class ActionCommands {
 
         WebElement element= driver.findElement(By.id("target"));
         element.sendKeys(Keys.CONTROL,Keys.DOWN);
+
+
+        String ttt= "    <Merchant><id>14192</id><discountAmount>12.4</discountAmount></Merchant>\n" +
+                "    <performTransferToMerchant>true</performTransferToMerchant>\n" +
+                "    <disburseTransactionDescription>ესთეტიკური მომსახურება asd</disburseTransactionDescription>\n";
     }
+    
+
 
 
 

@@ -23,11 +23,7 @@ public class FactoryExample {
 
         System.out.println("testMethod parameter value is: " + param);
     }
-    @Test
-    public void testMethod2() {
 
-        System.out.println("testMethod parameter value is: " + param);
-    }
 }
 
 

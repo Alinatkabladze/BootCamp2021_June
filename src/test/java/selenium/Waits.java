@@ -32,9 +32,8 @@ public class Waits {
         driver.manage().timeouts().implicitlyWait(5, SECONDS);
         WebElement submitButton = driver.findElement(By.xpath("//form[@id='input-example']/button[@type='button']"));
         submitButton.click();
-        WebElement message=driver.findElement(By.id("message"));
-        System.out.println(message);
-        System.out.println(driver.findElement(By.xpath("//form[@id='input-example']/input")).isEnabled());
+
+        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='finish']//following::h4")));
     }
 
     @Test
